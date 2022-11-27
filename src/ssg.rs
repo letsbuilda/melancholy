@@ -4,13 +4,11 @@ use figment::Figment;
 use crate::Context;
 
 pub(crate) fn build_command() -> Command {
-    Command::new("ssg")
-        .about("Building the site")
-        .subcommand(
-            Command::new("generate")
-                .about("Generate the site")
-                .arg(Arg::new("in-dir").help("The in-dir")),
-        )
+    Command::new("ssg").about("Building the site").subcommand(
+        Command::new("generate")
+            .about("Generate the site")
+            .arg(Arg::new("in-dir").help("The in-dir")),
+    )
 }
 
 pub(crate) fn process_matches(context: &Context, _config_builder: &Figment, matches: &ArgMatches) {
@@ -20,4 +18,3 @@ pub(crate) fn process_matches(context: &Context, _config_builder: &Figment, matc
         }
     }
 }
-
