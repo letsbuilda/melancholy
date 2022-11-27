@@ -1,2 +1,3 @@
 # melancholy
+
 Static Site Generator
