@@ -57,9 +57,9 @@ fn print_completions<G: Generator>(gen: G, cmd: &mut Command) {
 }
 
 pub(crate) fn process_matches(
-    context: Context,
-    config_builder: figment::Figment,
-    matches: ArgMatches,
+    context: &Context,
+    config_builder: &figment::Figment,
+    matches: &ArgMatches,
 ) {
     if let Some(matches) = matches.subcommand_matches("completions") {
         if let Some(generator) = matches.get_one::<Shell>("generator") {
@@ -67,7 +67,7 @@ pub(crate) fn process_matches(
             print_completions(*generator, &mut cmd);
         }
     } else if let Some(matches) = matches.subcommand_matches("ssg") {
-        crate::ssg::process_matches(&context, &config_builder, matches);
+        crate::ssg::process_matches(context, config_builder, matches);
     }
 }
 

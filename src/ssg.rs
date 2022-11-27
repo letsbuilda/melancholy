@@ -12,9 +12,9 @@ pub(crate) fn build_command() -> Command {
 }
 
 pub(crate) fn process_matches(context: &Context, _config_builder: &Figment, matches: &ArgMatches) {
-    if let Some(_matches) = matches.subcommand_matches("generate") {
+    if let Some(matches) = matches.subcommand_matches("generate") {
         if !context.quiet {
-            println!("{:#?}", _matches);
+            println!("{:#?}", matches);
         }
     }
 }

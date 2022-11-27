@@ -49,5 +49,5 @@ fn main() {
 
     let context = Context::new(matches.contains_id("quiet"));
 
-    process_matches(context, config_builder, matches);
+    process_matches(&context, &config_builder, &matches);
 }
